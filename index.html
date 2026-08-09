@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Портфолио Римаза</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Хуснутдинов Римаз</h1>
+        <nav>
+          <a href="#about">Обо мне</a>
+          <a href="#projects">Проекты</a>
+          <a href="#contacts">Контакты</a>
+          <button class="auth-btn" id="authToggleBtn">Войти</button>
+        </nav>
+      </header>
+
+      <section id="about">
+        <h2>Обо мне</h2>
+        <div class="about-text">
+          <p>
+            Привет! Я Римаз, веб-разработчик. Успешно окончил онлайн-школу
+            <strong>Skypro</strong>
+            по специальности «Веб-разработчик» и получил диплом о
+            профессиональной переподготовке. За время обучения освоил
+            современные технологии: HTML, CSS, JavaScript, React, Node.js,
+            работу с базами данных и Git. Мои работы смотри ниже.
+          </p>
+          <div class="skills">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>React</span>
+            <span>Node.js</span>
+            <span>Git</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Проекты</h2>
+        <button class="add-btn hidden" id="openAddModalBtn">
+          ➕ Добавить работу
+        </button>
+        <div class="carousel-wrapper">
+          <button class="carousel-btn prev" id="prevBtn">◀</button>
+          <div class="carousel-track-container">
+            <div class="carousel-track" id="carouselTrack">
+              <!-- карточки -->
+            </div>
+          </div>
+          <button class="carousel-btn next" id="nextBtn">▶</button>
+        </div>
+        <div class="carousel-indicators" id="indicators"></div>
+      </section>
+
+      <section id="contacts">
+        <h2>Контакты</h2>
+        <div class="contacts-list">
+          <a href="mailto:rimaz@example.com">📧 Email</a>
+          <a href="https://github.com" target="_blank">🐙 GitHub</a>
+          <a href="https://t.me" target="_blank">✈️ Telegram</a>
+          <a href="https://linkedin.com" target="_blank">🔗 LinkedIn</a>
+        </div>
+      </section>
+
+      <footer>&copy; 2026 Хуснутдинов Римаз. Все права защищены.</footer>
+    </div>
+
+    <!-- Модалка входа -->
+    <div class="modal" id="loginModal">
+      <div class="modal-content">
+        <button class="close-modal" id="closeLoginModalBtn">&times;</button>
+        <h2>Вход для администратора</h2>
+        <form id="loginForm">
+          <label for="passwordInput">Введите пароль</label>
+          <input
+            type="password"
+            id="passwordInput"
+            placeholder="Пароль"
+            required
+          />
+          <div id="loginError" class="error-msg"></div>
+          <div class="modal-actions">
+            <button type="button" class="cancel-btn" id="cancelLoginBtn">
+              Отмена
+            </button>
+            <button type="submit" class="submit-btn">Войти</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Модалка проекта -->
+    <div class="modal" id="projectModal">
+      <div class="modal-content">
+        <button class="close-modal" id="closeProjectModalBtn">&times;</button>
+        <h2 id="projectModalTitle">Новый проект</h2>
+        <form id="projectForm">
+          <input type="hidden" id="editProjectId" value="" />
+          <label for="projectTitle">Название *</label>
+          <input type="text" id="projectTitle" required />
+          <label for="projectDescription">Описание *</label>
+          <textarea id="projectDescription" required></textarea>
+          <label for="projectTech">Технологии (через запятую)</label>
+          <input
+            type="text"
+            id="projectTech"
+            placeholder="React, Node.js, MongoDB"
+          />
+          <label for="projectImage">Ссылка на изображение</label>
+          <input
+            type="url"
+            id="projectImage"
+            placeholder="https://example.com/image.jpg"
+          />
+          <label for="projectLink">Ссылка на проект</label>
+          <input
+            type="url"
+            id="projectLink"
+            placeholder="https://my-project.com"
+          />
+          <label for="projectRepo">Ссылка на репозиторий</label>
+          <input
+            type="url"
+            id="projectRepo"
+            placeholder="https://github.com/..."
+          />
+          <div class="modal-actions">
+            <button type="button" class="cancel-btn" id="cancelProjectBtn">
+              Отмена
+            </button>
+            <button type="submit" class="submit-btn" id="projectSubmitBtn">
+              ➕ Добавить
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Firebase SDK (compat) -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
